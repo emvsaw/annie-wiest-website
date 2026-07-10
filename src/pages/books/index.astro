@@ -21,7 +21,7 @@ const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
             <img src={book.data.cover} alt={book.data.title} loading="lazy" />
           </div>
           <div>
-            <p class="series-label">{book.data.series}</p>
+            <p class="series-label"><a href="/series/sacred-peaks-ranch-series/">{book.data.series}</a></p>
             <h3>{book.data.title}</h3>
             <p class="blurb">{book.data.blurb.split('\n\n')[0]}</p>
             <div class="actions">

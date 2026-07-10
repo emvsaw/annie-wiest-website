@@ -1,6 +1,7 @@
 .DS_Store
 node_modules/
 .astro/
+dist/
 .vscode/
 .env
 .DS_Store

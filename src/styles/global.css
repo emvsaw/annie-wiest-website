@@ -226,7 +226,9 @@ a:hover { color: var(--color-accent-dark); }
 }
 
 .section-title h2 { font-size: 2.25rem; }
-.section-title .eyebrow {
+.section-title h2 a { color: inherit; }
+.section-title h2 a:hover { color: var(--color-accent); }
+.eyebrow {
   display: block;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -255,6 +257,8 @@ a:hover { color: var(--color-accent-dark); }
 
 .book-row h3 { font-size: 1.625rem; }
 .book-row .series-label { color: var(--color-text-muted); font-size: 0.9375rem; margin-bottom: var(--space-sm); }
+.series-label a { color: inherit; text-decoration: underline; text-decoration-color: transparent; transition: text-decoration-color 0.2s, color 0.2s; }
+.series-label a:hover { color: var(--color-accent); text-decoration-color: currentColor; }
 .book-row .blurb { color: var(--color-text-muted); white-space: pre-line; }
 .book-row .actions { display: flex; align-items: center; gap: var(--space-sm); margin-top: var(--space-sm); }
 
@@ -447,3 +451,4 @@ a:hover { color: var(--color-accent-dark); }
 .legal-page p, .legal-page ul { color: var(--color-text-muted); line-height: 1.75; }
 .legal-page ul { padding-left: 1.25rem; }
 .legal-page li { margin-bottom: 0.4rem; }
+.legal-page .eyebrow { color: var(--color-accent); }

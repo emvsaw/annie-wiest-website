@@ -35,7 +35,7 @@ const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
     <div class="container">
       <div class="section-title">
         <span class="eyebrow">The Series</span>
-        <h2>Sacred Peaks Ranch</h2>
+        <h2><a href="/series/sacred-peaks-ranch-series/">Sacred Peaks Ranch</a></h2>
       </div>
       <div class="card-grid">
         {books.map(book => (
@@ -44,7 +44,7 @@ const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
               <img src={book.data.cover} alt={book.data.title} loading="lazy" />
             </a>
             <h4><a href={`/books/${book.data.slug}/`}>{book.data.title}</a></h4>
-            <p class="series-label">{book.data.series}</p>
+            <p class="series-label"><a href="/series/sacred-peaks-ranch-series/">{book.data.series}</a></p>
           </div>
         ))}
       </div>

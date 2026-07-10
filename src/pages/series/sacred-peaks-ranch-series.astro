@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { site } from '../../data/site';
+
+const allBooks = await getCollection('books');
+const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title={`Sacred Peaks Ranch Series | ${site.name}`} description="The Sacred Peaks Ranch series by Annie Wiest.">
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">🏔️ The Series 🏔️</span>
+        <h1>Sacred Peaks Ranch</h1>
+        <p style="color: var(--color-text-muted); margin-top: var(--space-xs);">A Sapphic Ranch Romance Series</p>
+      </div>
+
+      <div class="legal-page" style="margin-bottom: var(--space-xl);">
+        <p style="text-align:center;">Welcome to Colorado's most healing ranch, where every love story is sapphic and every ending is guaranteed happy.</p>
+
+        <ul class="trope-list">
+          <li>🐴 10-Book Series featuring different couples each book</li>
+          <li>🌈 100% sapphic romance with diverse representation</li>
+          <li>🔥 Steamy heat level with explicit intimate scenes</li>
+          <li>⭐ Standalone books with interconnected found family</li>
+        </ul>
+
+        <p class="eyebrow" style="margin-top: var(--space-md);">What Awaits You At Sacred Peaks Ranch</p>
+        <ul class="trope-list">
+          <li>Grumpy/sunshine dynamics that spark off the page</li>
+          <li>Workplace romances in creative retreat settings</li>
+          <li>Asian-American, African-American, Latina, and Native American representation</li>
+          <li>Horses that heal hearts and souls</li>
+          <li>Mountain magic and Colorado wilderness</li>
+          <li>Low angst, high heat, guaranteed HEAs</li>
+        </ul>
+
+        <p><strong>Heat Level:</strong> Steamy with explicit intimate scenes (open door with emotional depth)</p>
+        <p><strong>Perfect for fans of:</strong> Melissa Brayden, Georgia Beers, Rachel Spangler, Alexandria Bellefleur</p>
+        <p><em>Series Promise: Every book delivers authentic sapphic romance, diverse characters, ranch life, and love that conquers all. No exceptions. No surprises. Just happily ever after, every single time.</em></p>
+
+        <p style="text-align:center; font-weight:600; margin-top: var(--space-md);">🌟 Start your journey to Sacred Peaks Ranch today! 🌟</p>
+      </div>
+
+      <div class="card-grid">
+        {books.map(book => (
+          <div class="book-card">
+            <a href={`/books/${book.data.slug}/`} class="cover">
+              <img src={book.data.cover} alt={book.data.title} loading="lazy" />
+            </a>
+            <h4><a href={`/books/${book.data.slug}/`}>{book.data.title}</a></h4>
+            <p class="series-label">{book.data.series}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

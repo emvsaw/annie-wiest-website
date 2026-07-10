@@ -25,7 +25,7 @@ const relatedPraise = allTestimonials.filter(
       <img src={book.cover} alt={book.title} loading="lazy" />
     </div>
     <div>
-      <p class="series-label">{book.series}</p>
+      <p class="series-label"><a href="/series/sacred-peaks-ranch-series/">{book.series}</a></p>
       <h1>{book.title}</h1>
       {book.buyLink && (
         <a href={book.buyLink} class="btn btn-primary" target="_blank" rel="noopener">Buy Now</a>
