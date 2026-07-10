@@ -1,9 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../data/site';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  description: site.bio[0],
+  image: new URL(site.photo, Astro.site).toString(),
+  url: Astro.site?.toString(),
+  sameAs: [site.amazonAuthorLink, ...Object.values(site.socialLinks)].filter(Boolean),
+  jobTitle: 'Author',
+};
 ---
 
-<BaseLayout title={`About | ${site.name}`} description={`About ${site.name}, author of sapphic romance.`}>
+<BaseLayout title={`About | ${site.name}`} description={`About ${site.name}, author of sapphic romance.`} ogImage={site.photo}>
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   <section class="section">
     <div class="container about-grid">
       <div class="photo">

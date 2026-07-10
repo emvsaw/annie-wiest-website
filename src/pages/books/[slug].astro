@@ -17,9 +17,27 @@ const allTestimonials = await getCollection('testimonials');
 const relatedPraise = allTestimonials.filter(
   t => t.data.bookTitle.trim().toLowerCase() === book.title.trim().toLowerCase()
 );
+
+const bookSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  name: book.title,
+  author: { '@type': 'Person', name: site.name },
+  image: new URL(book.cover, Astro.site).toString(),
+  description: book.blurb.split('\n\n')[0],
+  isPartOfSeries: { '@type': 'CreativeWorkSeries', name: 'Sacred Peaks Ranch' },
+  ...(book.buyLink && {
+    offers: {
+      '@type': 'Offer',
+      url: book.buyLink,
+      availability: 'https://schema.org/InStock',
+    },
+  }),
+};
 ---
 
-<BaseLayout title={`${book.title} | ${site.name}`} description={book.blurb.split('\n\n')[0]}>
+<BaseLayout title={`${book.title} | ${site.name}`} description={book.blurb.split('\n\n')[0]} ogImage={book.cover}>
+  <script type="application/ld+json" set:html={JSON.stringify(bookSchema)} />
   <div class="container book-detail">
     <div class="cover">
       <img src={book.cover} alt={book.title} loading="lazy" />
