@@ -11,6 +11,8 @@ tropes:
   - "💕 Low angst, guaranteed HEA, all the feels"
   - "📖 Features June & Stevie from Book 1 of Sacred Peaks Ranch"
   - "✨ Can be read as standalone, no series knowledge required"
+listingTagline: "Vulnerability is scary as hell when you've spent your whole life guarding your heart."
+listingParagraph: "June's never been good at expressing feelings, except through her art. So for their first Christmas together, she's created something terrifying: a gift that shows Stevie exactly how much this relationship means."
 cover: "/images/covers/unwrapped.jpg"
 deliveryLink: "https://dl.bookfunnel.com/wtepqetwxl"
 order: 3

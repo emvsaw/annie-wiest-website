@@ -29,6 +29,8 @@ const freebies = defineCollection({
     slug: z.string(),
     tagline: z.string().optional(),
     blurb: z.string(),
+    listingTagline: z.string().optional(),
+    listingParagraph: z.string().optional(),
     tropes: z.array(z.string()).optional(),
     cover: z.string(),
     deliveryLink: z.string(),
