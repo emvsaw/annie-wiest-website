@@ -4,8 +4,8 @@ slug: healing-her-heart
 series: "Sacred Peaks Ranch Book 3"
 order: 3
 cover: "/images/covers/healing-her-heart.jpg"
-blurb: "Dr. Emily McDonald, a science-focused veterinarian, and Alex Rivera, an intuitive equine therapist, are forced to work together on a challenging case involving horses. Despite their different approaches, they develop undeniable chemistry while working in the Colorado mountains. As they collaborate on healing work, they fall for each other, discovering that combining scientific precision with traditional wisdom creates powerful results. Includes a bonus holiday epilogue, \"Unwrapped,\" featuring characters from Book 1."
-listingTagline: "Dr. Emily McDonald, a science-focused veterinarian, and Alex Rivera, an intuitive equine therapist, are forced to work together on a challenging case involving horses."
+blurb: "Dr. Emily McDonald, a science-focused veterinarian, and Alex Rivera, an intuitive equine therapist, work together on a challenging case involving horses. Despite their different approaches, they develop undeniable chemistry while working in the Colorado mountains. As they collaborate on healing work, they fall for each other, discovering that combining scientific precision with traditional wisdom creates powerful results. Includes a bonus holiday epilogue, \"Unwrapped,\" featuring characters from Book 1."
+listingTagline: "Dr. Emily McDonald, a science-focused veterinarian, and Alex Rivera, an intuitive equine therapist, work together on a challenging case involving horses."
 listingParagraph: "Despite their different approaches, they develop undeniable chemistry while working in the Colorado mountains. As they collaborate on healing work, they fall for each other, discovering that combining scientific precision with traditional wisdom creates powerful results."
 tropes:
   - "✨ Instalove (earned through competence & chemistry)"
