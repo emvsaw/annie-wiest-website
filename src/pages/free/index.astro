@@ -24,7 +24,7 @@ const freebies = [...allFreebies].sort((a, b) => a.data.order - b.data.order);
             <span class="free-flag">Free</span>
             {freebie.data.tagline && <p class="series-label">{freebie.data.tagline}</p>}
             <h3>{freebie.data.title}</h3>
-            {freebie.data.listingTagline && <p class="blurb" style="font-weight:600; margin-bottom: 0.5rem;">{freebie.data.listingTagline}</p>}
+            {freebie.data.listingTagline && <p class="tagline-line">{freebie.data.listingTagline}</p>}
             <p class="blurb">{freebie.data.listingParagraph ?? freebie.data.blurb.split('\n\n')[0]}</p>
             <div class="actions">
               <a href={freebie.data.deliveryLink} class="btn btn-primary" target="_blank" rel="noopener">Get Your Free Copy</a>
