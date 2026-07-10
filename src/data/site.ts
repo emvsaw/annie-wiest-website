@@ -10,7 +10,7 @@ export const site = {
     "When not writing love stories that make readers swoon, Annie can be found hiking mountain trails, practicing yoga (badly), experimenting with fusion cooking (also badly), and planning her next research trip to remote ranches.",
     "Annie's promise to readers: Steamy chemistry with emotional depth, diverse characters who feel genuine, and the radical joy of women loving women in worlds where that love is celebrated.",
   ],
-  photo: '/images/author-photo-placeholder.svg',
+  photo: '/images/author-photo.webp',
   amazonAuthorLink: 'https://www.amazon.com/author/anniewiest',
   socialLinks: {
     goodreads: 'https://www.goodreads.com/author/show/59304270.Annie_Wiest',
