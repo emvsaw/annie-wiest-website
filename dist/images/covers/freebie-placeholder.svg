@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600" role="img" aria-label="Cover coming soon">
+  <defs>
+    <linearGradient id="fg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f6e9dd"/>
+      <stop offset="100%" stop-color="#ecd6c4"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="600" fill="url(#fg)"/>
+  <rect x="16" y="16" width="368" height="568" fill="none" stroke="#c85c6b" stroke-opacity="0.35" stroke-width="2"/>
+  <text x="200" y="290" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#8a4550" letter-spacing="1">Cover</text>
+  <text x="200" y="326" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#8a4550" letter-spacing="1">Coming Soon</text>
+  <line x1="150" y1="350" x2="250" y2="350" stroke="#8a4550" stroke-opacity="0.5" stroke-width="1.5"/>
+</svg>
