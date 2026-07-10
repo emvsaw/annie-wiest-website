@@ -30,7 +30,7 @@ const bookSchema = {
     offers: {
       '@type': 'Offer',
       url: book.buyLink,
-      availability: 'https://schema.org/InStock',
+      availability: book.preorder ? 'https://schema.org/PreOrder' : 'https://schema.org/InStock',
     },
   }),
 };
@@ -46,7 +46,7 @@ const bookSchema = {
       <p class="series-label"><a href="/series/sacred-peaks-ranch-series/">{book.series}</a></p>
       <h1>{book.title}</h1>
       {book.buyLink && (
-        <a href={book.buyLink} class="btn btn-primary" target="_blank" rel="noopener">Buy Now</a>
+        <a href={book.buyLink} class="btn btn-primary" target="_blank" rel="noopener">{book.preorder ? 'Preorder Now' : 'Buy Now'}</a>
       )}
 
       <p class="eyebrow">About</p>
@@ -78,6 +78,7 @@ const bookSchema = {
           <p class="eyebrow">Praise For This Book</p>
           {relatedPraise.map(t => (
             <div class="testimonial-card" style="text-align:left; margin-bottom: 1rem;">
+              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
               <p class="quote">"{t.data.quote}"</p>
               <p class="attribution">&mdash; {t.data.source}</p>
             </div>

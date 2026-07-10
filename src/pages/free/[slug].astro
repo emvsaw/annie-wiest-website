@@ -27,6 +27,15 @@ const { freebie } = Astro.props;
 
       <p class="eyebrow">About</p>
       <p class="blurb">{freebie.blurb}</p>
+
+      {freebie.tropes && freebie.tropes.length > 0 && (
+        <>
+          <p class="eyebrow">In This Story</p>
+          <ul class="trope-list">
+            {freebie.tropes.map(t => <li>{t}</li>)}
+          </ul>
+        </>
+      )}
     </div>
   </div>
 </BaseLayout>

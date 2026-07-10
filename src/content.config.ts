@@ -15,6 +15,7 @@ const books = defineCollection({
     contentNotes: z.string().optional(),
     seriesPromise: z.string().optional(),
     buyLink: z.string().optional(),
+    preorder: z.boolean().default(false),
     featured: z.boolean().default(false),
   }),
 });
@@ -26,6 +27,7 @@ const freebies = defineCollection({
     slug: z.string(),
     tagline: z.string().optional(),
     blurb: z.string(),
+    tropes: z.array(z.string()).optional(),
     cover: z.string(),
     deliveryLink: z.string(),
     order: z.number(),

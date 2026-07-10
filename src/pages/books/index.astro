@@ -26,7 +26,7 @@ const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
             <p class="blurb">{book.data.blurb.split('\n\n')[0]}</p>
             <div class="actions">
               {book.data.buyLink && (
-                <a href={book.data.buyLink} class="btn btn-primary" target="_blank" rel="noopener">Buy Now</a>
+                <a href={book.data.buyLink} class="btn btn-primary" target="_blank" rel="noopener">{book.data.preorder ? 'Preorder Now' : 'Buy Now'}</a>
               )}
               <a href={`/books/${book.data.slug}/`} class="btn btn-outline">Learn More</a>
             </div>

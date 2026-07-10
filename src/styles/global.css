@@ -353,7 +353,7 @@ a:hover { color: var(--color-accent-dark); }
 }
 
 .stars { color: var(--color-accent); font-size: 1.25rem; margin-bottom: var(--space-sm); letter-spacing: 0.15em; }
-.testimonial-card .quote { font-style: italic; margin-bottom: var(--space-sm); }
+.testimonial-card .quote { font-style: italic; margin-bottom: var(--space-sm); white-space: pre-line; text-align: left; }
 .testimonial-card .attribution { color: var(--color-accent); font-style: italic; font-size: 0.9375rem; }
 
 /* About */
