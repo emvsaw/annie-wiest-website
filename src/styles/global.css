@@ -138,7 +138,8 @@ a:hover { color: var(--color-accent-dark); }
 
 /* Hero */
 .hero {
-  background: linear-gradient(180deg, #e8b7a8 0%, #c98a8f 28%, #6f5375 62%, #362a4f 100%);
+  background: linear-gradient(180deg, rgba(45,20,55,0.5) 0%, rgba(45,20,55,0.22) 40%, rgba(20,10,35,0.35) 100%),
+              url('/images/hero-bg.jpg') center / cover no-repeat;
   padding: var(--space-md) 0 var(--space-lg);
   text-align: center;
   color: #fff;
