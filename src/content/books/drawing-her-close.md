@@ -5,6 +5,8 @@ series: "Sacred Peaks Ranch Book 5"
 order: 5
 cover: "/images/covers/drawing-her-close.jpg"
 blurb: "She drove eleven hundred miles to be left alone. The woman with the wrench had other plans.\n\nAn artist and a cowgirl collaborate on a mural, navigating their pasts and an unexpected connection. Described as the softest book in the series."
+listingTagline: "She drove eleven hundred miles to be left alone. The woman with the wrench had other plans."
+listingParagraph: "An artist and a cowgirl collaborate on a mural, navigating their pasts and an unexpected connection. Described as the softest book in the series."
 tropes:
   - "🎨 Ranch and small-town settings"
   - "👨‍👩‍👧‍👦 Found family and ensemble warmth"

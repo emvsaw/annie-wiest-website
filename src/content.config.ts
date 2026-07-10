@@ -10,6 +10,8 @@ const books = defineCollection({
     order: z.number(),
     cover: z.string(),
     blurb: z.string(),
+    listingTagline: z.string().optional(),
+    listingParagraph: z.string().optional(),
     tropes: z.array(z.string()).optional(),
     heatLevel: z.string().optional(),
     contentNotes: z.string().optional(),
