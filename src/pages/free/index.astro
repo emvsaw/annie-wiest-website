@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { site } from '../../data/site';
+
+const allFreebies = await getCollection('freebies');
+const freebies = [...allFreebies].sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title={`Free Downloads | ${site.name}`} description="Free sapphic romance stories from the Sacred Peaks Ranch world.">
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">On The House</span>
+        <h2>Free Downloads</h2>
+      </div>
+
+      {freebies.map(freebie => (
+        <div class="book-row">
+          <div class="cover">
+            <img src={freebie.data.cover} alt={freebie.data.title} loading="lazy" />
+          </div>
+          <div>
+            <span class="free-flag">Free</span>
+            {freebie.data.tagline && <p class="series-label">{freebie.data.tagline}</p>}
+            <h3>{freebie.data.title}</h3>
+            <p class="blurb">{freebie.data.blurb.split('\n\n')[0]}</p>
+            <div class="actions">
+              <a href={freebie.data.deliveryLink} class="btn btn-primary" target="_blank" rel="noopener">Get Your Free Copy</a>
+              <a href={`/free/${freebie.data.slug}/`} class="btn btn-outline">Learn More</a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

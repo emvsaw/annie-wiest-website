@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { site } from '../../data/site';
+
+const allBooks = await getCollection('books');
+const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title={`Books | ${site.name}`} description="The Sacred Peaks Ranch series by Annie Wiest.">
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Read The Series</span>
+        <h2>Books</h2>
+      </div>
+
+      {books.map(book => (
+        <div class="book-row">
+          <div class="cover">
+            <img src={book.data.cover} alt={book.data.title} loading="lazy" />
+          </div>
+          <div>
+            <p class="series-label">{book.data.series}</p>
+            <h3>{book.data.title}</h3>
+            <p class="blurb">{book.data.blurb.split('\n\n')[0]}</p>
+            <div class="actions">
+              {book.data.buyLink && (
+                <a href={book.data.buyLink} class="btn btn-primary" target="_blank" rel="noopener">Buy Now</a>
+              )}
+              <a href={`/books/${book.data.slug}/`} class="btn btn-outline">Learn More</a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

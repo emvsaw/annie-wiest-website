@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title={`About | ${site.name}`} description={`About ${site.name}, author of sapphic romance.`}>
+  <section class="section">
+    <div class="container about-grid">
+      <div class="photo">
+        <img src={site.photo} alt={site.name} loading="lazy" />
+      </div>
+      <div>
+        <h1>About {site.name} &ndash; {site.tagline}</h1>
+        {site.bio.map(paragraph => <p>{paragraph}</p>)}
+        <a href={site.amazonAuthorLink} target="_blank" rel="noopener"><strong>Author page on Amazon</strong></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

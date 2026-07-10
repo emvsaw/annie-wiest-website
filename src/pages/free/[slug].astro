@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { site } from '../../data/site';
+
+export async function getStaticPaths() {
+  const freebies = await getCollection('freebies');
+  return freebies.map(freebie => ({
+    params: { slug: freebie.data.slug },
+    props: { freebie: freebie.data },
+  }));
+}
+
+const { freebie } = Astro.props;
+---
+
+<BaseLayout title={`${freebie.title} | Free | ${site.name}`} description={freebie.blurb.split('\n\n')[0]}>
+  <div class="container book-detail">
+    <div class="cover">
+      <img src={freebie.cover} alt={freebie.title} loading="lazy" />
+    </div>
+    <div>
+      <span class="free-flag">Free</span>
+      {freebie.tagline && <p class="series-label">{freebie.tagline}</p>}
+      <h1>{freebie.title}</h1>
+      <a href={freebie.deliveryLink} class="btn btn-primary" target="_blank" rel="noopener">Get Your Free Copy</a>
+
+      <p class="eyebrow">About</p>
+      <p class="blurb">{freebie.blurb}</p>
+    </div>
+  </div>
+</BaseLayout>

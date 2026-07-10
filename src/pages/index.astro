@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { site } from '../data/site';
+
+const allBooks = await getCollection('books');
+const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title={`${site.name} | ${site.tagline}`}>
+
+  <section class="hero">
+    <div class="container">
+      <h1>{site.heroHeading}</h1>
+      <p>{site.heroSubtext}</p>
+    </div>
+    <div class="hero-carousel-wrap">
+      <button class="hero-arrow hero-arrow--left" id="heroPrev" aria-label="Scroll left">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="hero-carousel" id="heroCarousel">
+        {books.map(book => (
+          <a href={`/books/${book.data.slug}/`} class="hero-carousel-item">
+            <img src={book.data.cover} alt={book.data.title} loading="lazy" />
+          </a>
+        ))}
+      </div>
+      <button class="hero-arrow hero-arrow--right" id="heroNext" aria-label="Scroll right">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">The Series</span>
+        <h2>Sacred Peaks Ranch</h2>
+      </div>
+      <div class="card-grid">
+        {books.map(book => (
+          <div class="book-card">
+            <a href={`/books/${book.data.slug}/`} class="cover">
+              <img src={book.data.cover} alt={book.data.title} loading="lazy" />
+            </a>
+            <h4><a href={`/books/${book.data.slug}/`}>{book.data.title}</a></h4>
+            <p class="series-label">{book.data.series}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter-band" id="newsletter">
+    <div class="container">
+      <h2>Get Exclusive Content!</h2>
+      <p>Join my mailing list to receive exclusive free content.</p>
+      <form class="nl-form" data-action={site.newsletterFormAction}>
+        <input type="text" name="fields[name]" placeholder="First Name" autocomplete="given-name" />
+        <input type="email" name="fields[email]" placeholder="Email Address" autocomplete="email" required />
+        <button type="submit" class="btn btn-primary">Get My Free Content</button>
+      </form>
+      <p class="form-success" style="color:#fff;">Thank you! Check your inbox.</p>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  const track = document.getElementById('heroCarousel');
+  const prevBtn = document.getElementById('heroPrev');
+  const nextBtn = document.getElementById('heroNext');
+
+  function scrollByCard(direction: number) {
+    const card = track?.querySelector('.hero-carousel-item') as HTMLElement | null;
+    const amount = card ? card.offsetWidth + 16 : 220;
+    track?.scrollBy({ left: direction * amount, behavior: 'smooth' });
+  }
+
+  prevBtn?.addEventListener('click', () => scrollByCard(-1));
+  nextBtn?.addEventListener('click', () => scrollByCard(1));
+
+  const form = document.querySelector('.nl-form') as HTMLFormElement;
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const action = form.dataset.action;
+    const formData = new FormData(form);
+    formData.append('ml-submit', '1');
+    formData.append('anticsrf', 'true');
+    try {
+      await fetch(action!, { method: 'POST', body: formData, mode: 'no-cors' });
+    } catch (_) {}
+    form.style.display = 'none';
+    document.querySelector('.form-success')!.setAttribute('style', 'display:block; color:#fff; font-weight:600;');
+  });
+</script>

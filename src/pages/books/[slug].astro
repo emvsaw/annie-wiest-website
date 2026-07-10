@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { site } from '../../data/site';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  return books.map(book => ({
+    params: { slug: book.data.slug },
+    props: { book: book.data },
+  }));
+}
+
+const { book } = Astro.props;
+
+const allTestimonials = await getCollection('testimonials');
+const relatedPraise = allTestimonials.filter(
+  t => t.data.bookTitle.trim().toLowerCase() === book.title.trim().toLowerCase()
+);
+---
+
+<BaseLayout title={`${book.title} | ${site.name}`} description={book.blurb.split('\n\n')[0]}>
+  <div class="container book-detail">
+    <div class="cover">
+      <img src={book.cover} alt={book.title} loading="lazy" />
+    </div>
+    <div>
+      <p class="series-label">{book.series}</p>
+      <h1>{book.title}</h1>
+      {book.buyLink && (
+        <a href={book.buyLink} class="btn btn-primary" target="_blank" rel="noopener">Buy Now</a>
+      )}
+
+      <p class="eyebrow">About</p>
+      <p class="blurb">{book.blurb}</p>
+
+      {book.tropes && book.tropes.length > 0 && (
+        <>
+          <p class="eyebrow">In This Book</p>
+          <ul class="trope-list">
+            {book.tropes.map(t => <li>{t}</li>)}
+          </ul>
+        </>
+      )}
+
+      {book.heatLevel && (
+        <p><strong>Heat Level:</strong> {book.heatLevel}</p>
+      )}
+
+      {book.contentNotes && (
+        <p><strong>Content Notes:</strong> {book.contentNotes}</p>
+      )}
+
+      {book.seriesPromise && (
+        <p><em>{book.seriesPromise}</em></p>
+      )}
+
+      {relatedPraise.length > 0 && (
+        <>
+          <p class="eyebrow">Praise For This Book</p>
+          {relatedPraise.map(t => (
+            <div class="testimonial-card" style="text-align:left; margin-bottom: 1rem;">
+              <p class="quote">"{t.data.quote}"</p>
+              <p class="attribution">&mdash; {t.data.source}</p>
+            </div>
+          ))}
+        </>
+      )}
+    </div>
+  </div>
+</BaseLayout>
