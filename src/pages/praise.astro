@@ -4,6 +4,13 @@ import { getCollection } from 'astro:content';
 import { site } from '../data/site';
 
 const allTestimonials = await getCollection('testimonials');
+
+// Fisher-Yates shuffle so praise isn't grouped by book
+const shuffledTestimonials = [...allTestimonials];
+for (let i = shuffledTestimonials.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [shuffledTestimonials[i], shuffledTestimonials[j]] = [shuffledTestimonials[j], shuffledTestimonials[i]];
+}
 ---
 
 <BaseLayout title={`Praise | ${site.name}`} description="What readers are saying about the Sacred Peaks Ranch series.">
@@ -14,7 +21,7 @@ const allTestimonials = await getCollection('testimonials');
         <h2>Praise</h2>
       </div>
       <div class="testimonial-grid">
-        {allTestimonials.map(t => (
+        {shuffledTestimonials.map(t => (
           <div class="testimonial-card">
             <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="quote">"{t.data.quote}"</p>
