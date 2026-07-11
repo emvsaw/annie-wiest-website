@@ -5,13 +5,17 @@ import { site } from '../../data/site';
 
 export async function getStaticPaths() {
   const books = await getCollection('books');
+  const chapters = await getCollection('chapters');
   return books.map(book => ({
     params: { slug: book.data.slug },
-    props: { book: book.data },
+    props: {
+      book: book.data,
+      hasChapter: chapters.some(c => c.data.bookSlug === book.data.slug),
+    },
   }));
 }
 
-const { book } = Astro.props;
+const { book, hasChapter } = Astro.props;
 
 const allTestimonials = await getCollection('testimonials');
 const relatedPraise = allTestimonials.filter(
@@ -45,9 +49,14 @@ const bookSchema = {
     <div>
       <p class="series-label"><a href="/series/sacred-peaks-ranch-series/">{book.series}</a></p>
       <h1>{book.title}</h1>
-      {book.buyLink && (
-        <a href={book.buyLink} class="btn btn-primary" target="_blank" rel="noopener">{book.preorder ? 'Preorder Now' : 'Buy Now'}</a>
-      )}
+      <div class="book-detail-actions">
+        {book.buyLink && (
+          <a href={book.buyLink} class="btn btn-primary" target="_blank" rel="noopener">{book.preorder ? 'Preorder Now' : 'Buy Now'}</a>
+        )}
+        {hasChapter && (
+          <a href={`/books/${book.slug}/chapter-1/`} class="btn btn-outline">Read Chapter 1</a>
+        )}
+      </div>
 
       <p class="eyebrow">About</p>
       <p class="blurb">{book.blurb}</p>

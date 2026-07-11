@@ -345,6 +345,109 @@ a:hover { color: var(--color-accent-dark); }
   .book-detail .cover { max-width: 260px; margin: 0 auto; }
 }
 
+.book-detail-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-sm);
+}
+
+/* Chapter reader */
+.chapter-reader-layout {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: var(--space-xl);
+  align-items: start;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.chapter-reader {
+  max-width: 720px;
+}
+
+.chapter-sidebar {
+  position: sticky;
+  top: var(--space-lg);
+}
+
+.chapter-sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.chapter-sidebar-inner img {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+}
+
+.chapter-sidebar-inner .btn { text-align: center; }
+
+@media (max-width: 900px) {
+  .chapter-reader-layout { grid-template-columns: 1fr; }
+  .chapter-sidebar { position: static; order: -1; }
+  .chapter-sidebar-inner { max-width: 220px; margin: 0 auto; }
+}
+
+.chapter-back {
+  margin-bottom: var(--space-md);
+  font-size: 0.9375rem;
+}
+
+.chapter-reader h1 { font-size: 2.25rem; }
+
+.chapter-audio {
+  margin: var(--space-md) 0 var(--space-lg);
+}
+
+.chapter-audio audio {
+  width: 100%;
+}
+
+.chapter-body {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.chapter-body p { margin: 0 0 var(--space-md); }
+
+.chapter-body .scene-break {
+  text-align: center;
+  letter-spacing: 0.5em;
+  color: var(--color-text-muted);
+  margin: var(--space-lg) 0;
+}
+
+.chapter-copyright {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-lg);
+}
+
+.chapter-cta {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.chapter-cta p {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.25rem;
+  margin-bottom: var(--space-md);
+}
+
+.chapter-cta .btn { margin: 0 0.4rem; }
+
+@media (max-width: 700px) {
+  .chapter-reader { padding: var(--space-lg) var(--space-md); }
+}
+
 /* Praise */
 .testimonial-grid {
   display: grid;

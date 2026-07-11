@@ -47,4 +47,14 @@ const testimonials = defineCollection({
   }),
 });
 
-export const collections = { books, freebies, testimonials };
+const chapters = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/chapters' }),
+  schema: z.object({
+    bookSlug: z.string(),
+    title: z.string().optional(),
+    audioFile: z.string().optional(),
+    audioDuration: z.string().optional(),
+  }),
+});
+
+export const collections = { books, freebies, testimonials, chapters };

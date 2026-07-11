@@ -22,7 +22,7 @@ const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
           </div>
           <div>
             <p class="series-label"><a href="/series/sacred-peaks-ranch-series/">{book.data.series}</a></p>
-            <h3>{book.data.title}</h3>
+            <h3><a href={`/books/${book.data.slug}/`}>{book.data.title}</a></h3>
             {book.data.listingTagline && <p class="tagline-line">{book.data.listingTagline}</p>}
             <p class="blurb">{book.data.listingParagraph ?? book.data.blurb.split('\n\n')[0]}</p>
             <div class="actions">

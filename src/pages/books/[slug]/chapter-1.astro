@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, getEntry, render } from 'astro:content';
+import { site } from '../../../data/site';
+
+export async function getStaticPaths() {
+  const chapters = await getCollection('chapters');
+  const paths = [];
+  for (const chapter of chapters) {
+    const book = await getEntry('books', chapter.data.bookSlug);
+    if (book) {
+      paths.push({ params: { slug: chapter.data.bookSlug }, props: { chapter } });
+    }
+  }
+  return paths;
+}
+
+const { chapter } = Astro.props;
+const book = await getEntry('books', chapter.data.bookSlug);
+const { Content } = await render(chapter);
+const year = new Date().getFullYear();
+---
+
+<BaseLayout
+  title={`${chapter.data.title || 'Chapter 1'} — ${book.data.title} | ${site.name}`}
+  description={`Read the first chapter of ${book.data.title} by ${site.name}.`}
+  ogImage={book.data.cover}
+>
+  <div class="container chapter-reader-layout">
+    <div class="chapter-reader">
+      <p class="chapter-back"><a href={`/books/${book.data.slug}/`}>&larr; Back to {book.data.title}</a></p>
+
+      <p class="eyebrow">{book.data.title}</p>
+      <h1>{chapter.data.title || 'Chapter 1'}</h1>
+
+      {chapter.data.audioFile && (
+        <div class="chapter-audio">
+          <audio controls src={chapter.data.audioFile}>
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      )}
+
+      <div class="chapter-body">
+        <Content />
+      </div>
+
+      <p class="chapter-copyright">
+        Copyright &copy; {year} {site.name}. All rights reserved. <em>{book.data.title}</em> is a work of fiction.
+      </p>
+
+      <div class="chapter-cta">
+        <p>Want to keep reading?</p>
+        {book.data.buyLink && (
+          <a href={book.data.buyLink} class="btn btn-primary" target="_blank" rel="noopener">
+            {book.data.preorder ? 'Preorder Now' : 'Buy Now'}
+          </a>
+        )}
+        <a href={`/books/${book.data.slug}/`} class="btn btn-outline">Back to {book.data.title}</a>
+      </div>
+    </div>
+
+    <aside class="chapter-sidebar">
+      <div class="chapter-sidebar-inner">
+        <img src={book.data.cover} alt={book.data.title} loading="lazy" />
+        {book.data.buyLink && (
+          <a href={book.data.buyLink} class="btn btn-primary" target="_blank" rel="noopener">
+            {book.data.preorder ? 'Preorder Now' : 'Buy Now'}
+          </a>
+        )}
+      </div>
+    </aside>
+  </div>
+</BaseLayout>
