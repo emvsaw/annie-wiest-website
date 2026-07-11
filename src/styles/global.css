@@ -112,6 +112,15 @@ a:hover { color: var(--color-accent-dark); }
 .header-socials a:hover { background: var(--color-accent); }
 .header-socials svg { width: 16px; height: 16px; }
 
+@media (max-width: 700px) {
+  .header-logo img { height: 90px; }
+  .header-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-xs) var(--space-sm);
+  }
+}
+
 .btn {
   display: inline-block;
   padding: 0.75rem 1.75rem;
@@ -445,7 +454,7 @@ a:hover { color: var(--color-accent-dark); }
 .chapter-cta .btn { margin: 0 0.4rem; }
 
 @media (max-width: 700px) {
-  .chapter-reader { padding: var(--space-lg) var(--space-md); }
+  .chapter-reader-layout { padding: var(--space-lg) var(--space-md); }
 }
 
 /* Praise */
