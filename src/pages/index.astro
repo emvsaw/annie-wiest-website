@@ -19,9 +19,14 @@ const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
       </button>
       <div class="hero-carousel" id="heroCarousel">
-        {books.map(book => (
+        {books.map((book, i) => (
           <a href={`/books/${book.data.slug}/`} class="hero-carousel-item">
-            <img src={book.data.cover} alt={book.data.title} loading="lazy" />
+            <img
+              src={book.data.cover}
+              alt={book.data.title}
+              loading={i === 0 ? 'eager' : 'lazy'}
+              fetchpriority={i === 0 ? 'high' : 'auto'}
+            />
           </a>
         ))}
       </div>
