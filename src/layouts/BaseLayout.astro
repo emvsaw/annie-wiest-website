@@ -6,12 +6,14 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  preloadImage?: string;
 }
 
 const {
   title,
   description = 'Sapphic romance by Annie Wiest. The Sacred Peaks Ranch series.',
   ogImage = '/images/newsletter-bg.jpg',
+  preloadImage,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -27,6 +29,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
   <link rel="canonical" href={canonicalURL} />
   <title>{title}</title>
   <link rel="icon" type="image/png" href="/favicon-aw.png" />
+  {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
   <meta name="google-site-verification" content="S4G3vczR-tPkFEjpBIBcw8YOsDSxuYN4tvAaMVEVSvI" />
 
   <!-- Open Graph -->

@@ -7,7 +7,7 @@ const allBooks = await getCollection('books');
 const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
 ---
 
-<BaseLayout title={`${site.name} | ${site.tagline}`}>
+<BaseLayout title={`${site.name} | ${site.tagline}`} preloadImage="/images/hero-bg.jpg">
 
   <section class="hero">
     <div class="container">
