@@ -16,6 +16,6 @@ tropes:
   - "🎸 Folk music and a porch at sunset"
 heatLevel: "4.5/5 flames"
 buyLink: "https://mybook.to/CnmnN"
-preorder: true
+preorder: false
 featured: false
 ---
