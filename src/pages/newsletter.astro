@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title={`Newsletter | ${site.name}`} description={`Join ${site.name}'s newsletter for exclusive free content, new release news, and behind-the-scenes updates from Sacred Peaks Ranch.`}>
+
+  <section class="newsletter-band" id="newsletter">
+    <div class="container">
+      <h2>Get Exclusive Content!</h2>
+      <p style="max-width: 560px; margin-left: auto; margin-right: auto;">
+        Join my mailing list and be the first to know about new releases, cover reveals, and
+        exclusive bonus scenes from Sacred Peaks Ranch. You'll also get free content just for
+        signing up, plus occasional notes from me about the writing process, upcoming books,
+        character interviews. No spam, ever, unsubscribe any time.
+      </p>
+      <form class="nl-form" data-action={site.newsletterFormAction}>
+        <input type="text" name="fields[name]" placeholder="First Name" autocomplete="given-name" />
+        <input type="email" name="fields[email]" placeholder="Email Address" autocomplete="email" required />
+        <button type="submit" class="btn btn-primary">Get My Free Content</button>
+      </form>
+      <p class="form-success" style="color:#fff;">Thank you! Check your inbox.</p>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  const form = document.querySelector('.nl-form') as HTMLFormElement;
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const action = form.dataset.action;
+    const formData = new FormData(form);
+    formData.append('ml-submit', '1');
+    formData.append('anticsrf', 'true');
+    try {
+      await fetch(action!, { method: 'POST', body: formData, mode: 'no-cors' });
+    } catch (_) {}
+    form.style.display = 'none';
+    document.querySelector('.form-success')!.setAttribute('style', 'display:block; color:#fff; font-weight:600;');
+  });
+</script>
