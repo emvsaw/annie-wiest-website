@@ -514,6 +514,7 @@ a:hover { color: var(--color-accent-dark); }
 
 .form-narrow { max-width: 520px; }
 .form-success { display: none; font-weight: 600; color: var(--color-accent-dark); margin-top: var(--space-sm); }
+.form-error { display: none; font-weight: 600; color: #b3261e; margin-top: var(--space-sm); }
 
 /* Newsletter band */
 .newsletter-band {

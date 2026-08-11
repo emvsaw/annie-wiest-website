@@ -21,6 +21,7 @@ import { site } from '../data/site';
         <button type="submit" class="btn btn-primary">Get My Free Content</button>
       </form>
       <p class="form-success" style="color:#fff;">Thank you! Check your inbox.</p>
+      <p class="form-error" style="color:#ffb4a8;">Something went wrong — please try again, or email me directly.</p>
     </div>
   </section>
 
@@ -35,9 +36,16 @@ import { site } from '../data/site';
     formData.append('ml-submit', '1');
     formData.append('anticsrf', 'true');
     try {
-      await fetch(action!, { method: 'POST', body: formData, mode: 'no-cors' });
-    } catch (_) {}
-    form.style.display = 'none';
-    document.querySelector('.form-success')!.setAttribute('style', 'display:block; color:#fff; font-weight:600;');
+      const res = await fetch(action!, { method: 'POST', body: formData });
+      const result = await res.json();
+      if (result.success) {
+        form.style.display = 'none';
+        document.querySelector('.form-success')!.setAttribute('style', 'display:block; color:#fff; font-weight:600;');
+      } else {
+        document.querySelector('.form-error')!.setAttribute('style', 'display:block; color:#ffb4a8; font-weight:600;');
+      }
+    } catch (_) {
+      document.querySelector('.form-error')!.setAttribute('style', 'display:block; color:#ffb4a8; font-weight:600;');
+    }
   });
 </script>
