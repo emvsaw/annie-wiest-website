@@ -30,6 +30,9 @@ const hasChapter = (slug: string) => chapters.some(c => c.data.bookSlug === slug
             {hasChapter(book.data.slug) && (
               <p class="sample-line">Not sure yet? <a href={`/books/${book.data.slug}/chapter-1/`}>Read Chapter 1 free</a>.</p>
             )}
+            {book.data.slug === 'wide-open-valley' && (
+              <p class="sample-line">Curious first? One of these stories, "Hands Like Yours," is free on the <a href="/free/">Free Stories</a> page.</p>
+            )}
             <div class="actions">
               {book.data.buyLink && (
                 <a href={book.data.buyLink} class="btn btn-primary" target="_blank" rel="noopener">{book.data.preorder ? 'Preorder Now' : 'Buy Now'}</a>
