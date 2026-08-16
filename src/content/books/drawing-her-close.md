@@ -5,8 +5,8 @@ series: "Sacred Peaks Ranch Book 5"
 order: 5
 cover: "/images/covers/drawing-her-close.jpg"
 blurb: "She drove eleven hundred miles to be left alone. The woman with the wrench had other plans.\n\nAn artist and a cowgirl collaborate on a mural, navigating their pasts and an unexpected connection. Described as the softest book in the series."
-listingTagline: "She drove eleven hundred miles to be left alone. The woman with the wrench had other plans."
-listingParagraph: "An artist and a cowgirl collaborate on a mural, navigating their pasts and an unexpected connection. Described as the softest book in the series."
+listingTagline: "Iris paints walls. Marisa builds them. A mural is the matchmaker."
+listingParagraph: "Iris Vale packs her van and drives eleven hundred miles to a Colorado ranch, determined to remember who she is when nobody needs anything from her. She doesn't plan on Marisa Castellanos, the ranch's quiet foreman with steady hands and a past she won't discuss."
 tropes:
   - "🎨 Ranch and small-town settings"
   - "👨‍👩‍👧‍👦 Found family and ensemble warmth"
