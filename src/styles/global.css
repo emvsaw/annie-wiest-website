@@ -273,6 +273,14 @@ a:hover { color: var(--color-accent-dark); }
 .book-row .blurb { color: var(--color-text-muted); white-space: pre-line; }
 .book-row .actions { display: flex; align-items: center; gap: var(--space-sm); margin-top: var(--space-sm); }
 
+.sample-line {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  margin-top: 0.5rem;
+}
+.sample-line a { color: var(--color-accent); text-decoration: underline; text-decoration-color: transparent; transition: text-decoration-color 0.2s; }
+.sample-line a:hover { text-decoration-color: currentColor; }
+
 .tagline-line {
   font-family: var(--font-heading);
   font-style: italic;

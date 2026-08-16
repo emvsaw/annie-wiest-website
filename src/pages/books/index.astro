@@ -5,6 +5,8 @@ import { site } from '../../data/site';
 
 const allBooks = await getCollection('books');
 const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
+const chapters = await getCollection('chapters');
+const hasChapter = (slug: string) => chapters.some(c => c.data.bookSlug === slug);
 ---
 
 <BaseLayout title={`Books | ${site.name}`} description="The Sacred Peaks Ranch series by Annie Wiest.">
@@ -25,6 +27,9 @@ const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
             <h3><a href={`/books/${book.data.slug}/`}>{book.data.title}</a></h3>
             {book.data.listingTagline && <p class="tagline-line">{book.data.listingTagline}</p>}
             <p class="blurb">{book.data.listingParagraph ?? book.data.blurb.split('\n\n')[0]}</p>
+            {hasChapter(book.data.slug) && (
+              <p class="sample-line">Not sure yet? <a href={`/books/${book.data.slug}/chapter-1/`}>Read Chapter 1 free</a>.</p>
+            )}
             <div class="actions">
               {book.data.buyLink && (
                 <a href={book.data.buyLink} class="btn btn-primary" target="_blank" rel="noopener">{book.data.preorder ? 'Preorder Now' : 'Buy Now'}</a>
