@@ -11,6 +11,7 @@ const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
 
   <section class="hero">
     <div class="container">
+      <span class="eyebrow">Sapphic Ranch Romance</span>
       <h1>{site.heroHeading}</h1>
       <p>{site.heroSubtext}</p>
     </div>
@@ -41,6 +42,7 @@ const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
       <div class="section-title">
         <span class="eyebrow">The Series</span>
         <h2><a href="/series/sacred-peaks-ranch-series/">Sacred Peaks Ranch</a></h2>
+        <p>Sapphic romance novels set on a Colorado ranch: found family, slow-burn and steamy chemistry, and a guaranteed happy ending in every book.</p>
       </div>
       <div class="card-grid">
         {books.map(book => (
@@ -66,7 +68,7 @@ const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
         <button type="submit" class="btn btn-primary">Get My Free Content</button>
       </form>
       <p class="form-success" style="color:#fff;">Almost there! Check your inbox and click the confirmation link to complete your signup.</p>
-      <p class="form-error" style="color:#ffb4a8;">Something went wrong — please try again, or email me directly.</p>
+      <p class="form-error" style="color:#ffb4a8;">Something went wrong. Please try again, or email me directly.</p>
     </div>
   </section>
 

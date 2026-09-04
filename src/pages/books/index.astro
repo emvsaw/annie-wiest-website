@@ -9,12 +9,13 @@ const chapters = await getCollection('chapters');
 const hasChapter = (slug: string) => chapters.some(c => c.data.bookSlug === slug);
 ---
 
-<BaseLayout title={`Books | ${site.name}`} description="The Sacred Peaks Ranch series by Annie Wiest.">
+<BaseLayout title={`Sapphic Ranch Romance Books | ${site.name}`} description="Browse all sapphic romance novels in Annie Wiest's Sacred Peaks Ranch series: ranch romance, found family, and guaranteed happy endings.">
   <section class="section">
     <div class="container">
       <div class="section-title">
         <span class="eyebrow">Read The Series</span>
         <h2>Books</h2>
+        <p>Every Sacred Peaks Ranch novel, in reading order. Each one is a standalone sapphic romance and can be read on its own.</p>
       </div>
 
       {books.map(book => (

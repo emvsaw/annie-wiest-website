@@ -5,9 +5,47 @@ import { site } from '../../data/site';
 
 const allBooks = await getCollection('books');
 const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
+
+const faqs = [
+  {
+    question: 'What is sapphic romance?',
+    answer: "Sapphic romance is a romance genre centered on love stories between women. Sacred Peaks Ranch is a sapphic romance series: every couple, every book, is a woman falling for a woman.",
+  },
+  {
+    question: 'Where should I start reading the Sacred Peaks Ranch series?',
+    answer: 'Every book is a standalone romance with its own couple and its own happy ending, so you can start anywhere. For the fullest experience of the found-family thread running through the series, start with Book 1, Finding Her Home.',
+  },
+  {
+    question: 'Is Sacred Peaks Ranch a real place?',
+    answer: "No, Sacred Peaks Ranch is a fictional Colorado ranch and wellness retreat, the setting for Annie Wiest's sapphic romance series.",
+  },
+  {
+    question: 'Do the books have guaranteed happy endings?',
+    answer: "Yes. Every Sacred Peaks Ranch book ends happily. Annie Wiest's series promise is love that always wins, no exceptions.",
+  },
+  {
+    question: 'Can I read a free chapter before buying?',
+    answer: 'Yes. Most books in the series link to a free first chapter you can read right on this site, and there are additional free short stories and chapters on the Free Stories page.',
+  },
+  {
+    question: 'How steamy are the books?',
+    answer: "All Sacred Peaks Ranch books are open door, no closed door romances here, with heat level ranging from medium steam to explicit. Each book's page lists its specific heat level and content notes so you can pick what fits your comfort level.",
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+  })),
+};
 ---
 
 <BaseLayout title={`Sacred Peaks Ranch Series | ${site.name}`} description="The Sacred Peaks Ranch series by Annie Wiest.">
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <section class="section">
     <div class="container">
       <div class="section-title">
@@ -52,6 +90,19 @@ const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
             <h4><a href={`/books/${book.data.slug}/`}>{book.data.title}</a></h4>
             <p class="series-label">{book.data.series}</p>
           </div>
+        ))}
+      </div>
+
+      <div class="faq-section">
+        <div class="section-title">
+          <span class="eyebrow">Questions</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        {faqs.map(faq => (
+          <details class="faq-item">
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
         ))}
       </div>
     </div>

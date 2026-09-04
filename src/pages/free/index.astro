@@ -7,12 +7,13 @@ const allFreebies = await getCollection('freebies');
 const freebies = [...allFreebies].sort((a, b) => a.data.order - b.data.order);
 ---
 
-<BaseLayout title={`Free Stories | ${site.name}`} description="Free sapphic romance stories from the Sacred Peaks Ranch world.">
+<BaseLayout title={`Free Sapphic Romance Stories | ${site.name}`} description="Read free sapphic romance stories and chapters from the Sacred Peaks Ranch world. No purchase required, delivered straight to your inbox.">
   <section class="section">
     <div class="container">
       <div class="section-title">
         <span class="eyebrow">On The House</span>
         <h2>Free Stories</h2>
+        <p>No purchase required to start reading, just a free copy delivered to your inbox. Dive into the world of Sacred Peaks Ranch below.</p>
       </div>
 
       {freebies.map(freebie => (

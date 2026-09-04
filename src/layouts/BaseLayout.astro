@@ -34,7 +34,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content={`${site.name} — ${site.tagline}`} />
+  <meta property="og:site_name" content={`${site.name}: ${site.tagline}`} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={ogImageURL} />
@@ -52,7 +52,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="header-logo">
-        <img src="/images/logo/logo-transparent.png" alt={`${site.name} — ${site.tagline}`} />
+        <img src="/images/logo/logo-transparent.png" alt={`${site.name}: ${site.tagline}`} />
       </a>
       <nav class="header-nav">
         <a href="/">Home</a>

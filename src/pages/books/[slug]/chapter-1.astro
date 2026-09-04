@@ -22,7 +22,7 @@ const year = new Date().getFullYear();
 ---
 
 <BaseLayout
-  title={`${chapter.data.title || 'Chapter 1'} — ${book.data.title} | ${site.name}`}
+  title={`${chapter.data.title || 'Chapter 1'} from ${book.data.title} | ${site.name}`}
   description={`Read the first chapter of ${book.data.title} by ${site.name}.`}
   ogImage={book.data.cover}
 >
@@ -71,4 +71,44 @@ const year = new Date().getFullYear();
       </div>
     </aside>
   </div>
+
+  <section class="newsletter-band" id="newsletter">
+    <div class="container">
+      <h2>Want More Sapphic Ranch Romance?</h2>
+      <p style="max-width: 560px; margin-left: auto; margin-right: auto;">
+        Join my mailing list for exclusive free stories, new release news, and behind-the-scenes
+        updates from Sacred Peaks Ranch. No spam, ever, unsubscribe any time.
+      </p>
+      <form class="nl-form" data-action={site.newsletterFormAction}>
+        <input type="text" name="fields[name]" placeholder="First Name" autocomplete="given-name" />
+        <input type="email" name="fields[email]" placeholder="Email Address" autocomplete="email" required />
+        <button type="submit" class="btn btn-primary">Get My Free Content</button>
+      </form>
+      <p class="form-success" style="color:#fff;">Almost there! Check your inbox and click the confirmation link to complete your signup.</p>
+      <p class="form-error" style="color:#ffb4a8;">Something went wrong. Please try again, or email me directly.</p>
+    </div>
+  </section>
 </BaseLayout>
+
+<script>
+  const form = document.querySelector('.nl-form') as HTMLFormElement;
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const action = form.dataset.action;
+    const formData = new FormData(form);
+    formData.append('ml-submit', '1');
+    formData.append('anticsrf', 'true');
+    try {
+      const res = await fetch(action!, { method: 'POST', body: formData });
+      const result = await res.json();
+      if (result.success) {
+        form.style.display = 'none';
+        document.querySelector('.form-success')!.setAttribute('style', 'display:block; color:#fff; font-weight:600;');
+      } else {
+        document.querySelector('.form-error')!.setAttribute('style', 'display:block; color:#ffb4a8; font-weight:600;');
+      }
+    } catch (_) {
+      document.querySelector('.form-error')!.setAttribute('style', 'display:block; color:#ffb4a8; font-weight:600;');
+    }
+  });
+</script>
