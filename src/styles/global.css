@@ -168,6 +168,10 @@ a:hover { color: var(--color-accent-dark); }
   color: rgba(255,255,255,0.9);
 }
 
+.hero .eyebrow {
+  color: #fff;
+}
+
 .hero-carousel-wrap {
   display: flex;
   align-items: center;
