@@ -14,7 +14,7 @@ tropes:
   - "💘 Instalove, low-angst, no third-act breakup"
   - "🏡 Found-family ranch setting"
   - "❤️ Standalone HEA in a connected series"
-heatLevel: "High Heat"
+heatLevel: "4/5 flames"
 contentNotes: "Autistic heroine; already-pregnant heroine navigating a divorce."
 buyLink: "https://mybook.to/IYzl"
 preorder: false
