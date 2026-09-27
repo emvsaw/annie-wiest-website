@@ -17,6 +17,6 @@ tropes:
 heatLevel: "High Heat"
 contentNotes: "Autistic heroine; already-pregnant heroine navigating a divorce."
 buyLink: "https://mybook.to/IYzl"
-preorder: true
+preorder: false
 featured: false
 ---
