@@ -1,6 +1,8 @@
 ---
 bookSlug: stirring-her-soul
 title: "Chapter 1: The Kitchen Invasion"
+audioFile: /audio/stirring-her-soul-ch1.m4a
+audioDuration: "11:54"
 ---
 
 *Lily Huang | Day 1, 5:00 AM*
