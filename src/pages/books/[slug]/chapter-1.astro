@@ -35,9 +35,18 @@ const year = new Date().getFullYear();
 
       {chapter.data.audioFile && (
         <div class="chapter-audio">
+          <p class="chapter-audio-label">
+            Audio{chapter.data.audioDuration && ` (${chapter.data.audioDuration})`}
+          </p>
           <audio controls src={chapter.data.audioFile}>
             Your browser does not support the audio element.
           </audio>
+          {book.data.buyLink && (
+            <p class="chapter-audio-cta">
+              Loving this? Dive into the full story today, available to read or listen on Amazon/Kindle Unlimited:{' '}
+              <a href={book.data.buyLink} target="_blank" rel="noopener">Get {book.data.title}</a>
+            </p>
+          )}
         </div>
       )}
 

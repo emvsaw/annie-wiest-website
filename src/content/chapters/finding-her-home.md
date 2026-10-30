@@ -1,6 +1,8 @@
 ---
 bookSlug: finding-her-home
 title: "Chapter 1"
+audioFile: /audio/finding-her-home-ch1.m4a
+audioDuration: "9:34"
 ---
 
 *June*

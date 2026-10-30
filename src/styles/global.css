@@ -425,8 +425,25 @@ a:hover { color: var(--color-accent-dark); }
   margin: var(--space-md) 0 var(--space-lg);
 }
 
+.chapter-audio-label {
+  margin: 0 0 var(--space-xs);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
 .chapter-audio audio {
   width: 100%;
+}
+
+.chapter-audio-cta {
+  margin: var(--space-sm) 0 0;
+  font-size: 0.8125rem;
+  font-style: italic;
+}
+
+.chapter-audio-cta a {
+  font-style: normal;
+  font-weight: 600;
 }
 
 .chapter-body {
