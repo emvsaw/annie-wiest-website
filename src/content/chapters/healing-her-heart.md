@@ -1,6 +1,8 @@
 ---
 bookSlug: healing-her-heart
 title: "Chapter 1: When the New One Knows Horses"
+audioFile: /audio/healing-her-heart-ch1.m4a
+audioDuration: "31:57"
 ---
 
 *Emily McDonald | Friday morning, early September*
