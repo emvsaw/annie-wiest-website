@@ -7,6 +7,7 @@ const allBooks = await getCollection('books');
 const books = [...allBooks].sort((a, b) => a.data.order - b.data.order);
 const chapters = await getCollection('chapters');
 const hasChapter = (slug: string) => chapters.some(c => c.data.bookSlug === slug);
+const hasAudio = (slug: string) => chapters.some(c => c.data.bookSlug === slug && c.data.audioFile);
 ---
 
 <BaseLayout title={`Sapphic Ranch Romance Books | ${site.name}`} description="Browse all sapphic romance novels in Annie Wiest's Sacred Peaks Ranch series: ranch romance, found family, and guaranteed happy endings.">
@@ -29,7 +30,7 @@ const hasChapter = (slug: string) => chapters.some(c => c.data.bookSlug === slug
             {book.data.listingTagline && <p class="tagline-line">{book.data.listingTagline}</p>}
             <p class="blurb">{book.data.listingParagraph ?? book.data.blurb.split('\n\n')[0]}</p>
             {hasChapter(book.data.slug) && (
-              <p class="sample-line">Not sure yet? <a href={`/books/${book.data.slug}/chapter-1/`}>Read Chapter 1 free</a>.</p>
+              <p class="sample-line">Not sure yet? <a href={`/books/${book.data.slug}/chapter-1/`}>{hasAudio(book.data.slug) ? 'Read and listen Chapter 1 free' : 'Read Chapter 1 free'}</a>.</p>
             )}
             {book.data.slug === 'wide-open-valley' && (
               <p class="sample-line">Curious first? One of these stories, "Hands Like Yours," is free on the <a href="/free/">Free Stories</a> page.</p>

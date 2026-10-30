@@ -11,11 +11,12 @@ export async function getStaticPaths() {
     props: {
       book: book.data,
       hasChapter: chapters.some(c => c.data.bookSlug === book.data.slug),
+      hasAudio: chapters.some(c => c.data.bookSlug === book.data.slug && c.data.audioFile),
     },
   }));
 }
 
-const { book, hasChapter } = Astro.props;
+const { book, hasChapter, hasAudio } = Astro.props;
 
 const allTestimonials = await getCollection('testimonials');
 const relatedPraise = allTestimonials.filter(
@@ -54,7 +55,7 @@ const bookSchema = {
           <a href={book.buyLink} class="btn btn-primary" target="_blank" rel="noopener">{book.preorder ? 'Preorder Now' : 'Buy Now'}</a>
         )}
         {hasChapter && (
-          <a href={`/books/${book.slug}/chapter-1/`} class="btn btn-outline">Read Chapter 1</a>
+          <a href={`/books/${book.slug}/chapter-1/`} class="btn btn-outline">{hasAudio ? 'Read and listen Chapter 1' : 'Read Chapter 1'}</a>
         )}
       </div>
 
