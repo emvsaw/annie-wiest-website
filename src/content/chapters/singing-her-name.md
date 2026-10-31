@@ -1,6 +1,8 @@
 ---
 bookSlug: singing-her-name
 title: "Chapter 1: The One Question"
+audioFile: /audio/singing-her-name-ch1.m4a
+audioDuration: "7:50"
 ---
 
 *Rae*

@@ -1,6 +1,8 @@
 ---
 bookSlug: keeping-her-safe
 title: "Chapter 1: Six Weeks and Counting"
+audioFile: /audio/keeping-her-safe-ch1.m4a
+audioDuration: "14:01"
 ---
 
 *Moira*

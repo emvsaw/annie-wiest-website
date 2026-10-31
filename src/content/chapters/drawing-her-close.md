@@ -1,6 +1,8 @@
 ---
 bookSlug: drawing-her-close
 title: "Chapter 1: The Thing She Couldn't Leave"
+audioFile: /audio/drawing-her-close-ch1.m4a
+audioDuration: "16:42"
 ---
 
 *Marisa*
