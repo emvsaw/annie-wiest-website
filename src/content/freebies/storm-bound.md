@@ -7,5 +7,6 @@ listingTagline: "Snowed in. Candlelight. All the time in the world."
 listingParagraph: "June and Stevie built their ranch dream. But a surprise blizzard traps them in their cozy cabin, forcing them to rediscover what matters: each other."
 cover: "/images/covers/storm-bound.jpg"
 deliveryLink: "https://dl.bookfunnel.com/pe96j7rrd5"
+audiobookLink: "https://BookHip.com/ZLDWCLP"
 order: 2
 ---

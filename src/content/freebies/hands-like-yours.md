@@ -7,5 +7,6 @@ listingTagline: "Three days. One meadow at dawn. Hands that remember what they w
 listingParagraph: "Nadine has spent every minute of her adult life being someone's mother. Paloma has paint under her fingernails, no schedule to keep, and a way of looking at a woman like she's something worth slowing down for."
 cover: "/images/covers/hands-like-yours.jpg"
 deliveryLink: "https://dl.bookfunnel.com/fmu0ad2jwa"
+audiobookLink: "https://BookHip.com/WMZZFVM"
 order: 1
 ---
