@@ -1,6 +1,8 @@
 ---
 bookSlug: lighting-her-fire
 title: "Chapter 1: When the Mountain Wants You Dead"
+audioFile: /audio/lighting-her-fire-ch1.m4a
+audioDuration: "19:21"
 ---
 
 *Aiden*
