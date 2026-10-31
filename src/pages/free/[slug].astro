@@ -24,9 +24,11 @@ const { freebie } = Astro.props;
       {freebie.tagline && <p class="series-label">{freebie.tagline}</p>}
       <h1>{freebie.title}</h1>
       <div class="book-detail-actions">
-        <a href={freebie.deliveryLink} class="btn btn-primary" target="_blank" rel="noopener">Get Your Free Copy</a>
+        <a href={freebie.deliveryLink} class="btn btn-primary" target="_blank" rel="noopener">
+          {freebie.audiobookLink ? 'Get Your Free Ebook' : 'Get Your Free Copy'}
+        </a>
         {freebie.audiobookLink && (
-          <a href={freebie.audiobookLink} class="btn btn-outline" target="_blank" rel="noopener">Get the Audiobook</a>
+          <a href={freebie.audiobookLink} class="btn btn-outline" target="_blank" rel="noopener">Get Your Free Audiobook</a>
         )}
       </div>
 
