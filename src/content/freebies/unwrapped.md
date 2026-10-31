@@ -15,5 +15,6 @@ listingTagline: "Vulnerability is scary as hell when you've spent your whole lif
 listingParagraph: "June's never been good at expressing feelings, except through her art. So for their first Christmas together, she's created something terrifying: a gift that shows Stevie exactly how much this relationship means."
 cover: "/images/covers/unwrapped.jpg"
 deliveryLink: "https://dl.bookfunnel.com/wtepqetwxl"
+audiobookLink: "https://BookHip.com/TMDCVWS"
 order: 3
 ---

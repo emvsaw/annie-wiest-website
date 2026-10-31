@@ -34,6 +34,7 @@ const freebies = defineCollection({
     tropes: z.array(z.string()).optional(),
     cover: z.string(),
     deliveryLink: z.string(),
+    audiobookLink: z.string().optional(),
     order: z.number(),
   }),
 });
